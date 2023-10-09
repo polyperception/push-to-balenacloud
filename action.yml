@@ -16,6 +16,10 @@ inputs:
   version:
     description: "The version of the release being deployed"
     default: "0.0.0"
+  draft:
+    description: "Mark as draft release"
+    required: false
+    default: 'false'
 runs:
   using: "docker"
   image: "Dockerfile"
@@ -24,3 +28,4 @@ runs:
     APPLICATION_NAME: ${{ inputs.application-name }}
     APPLICATION_PATH: ${{ inputs.application-path }}
     VERSION: ${{ inputs.version }}
+    DRAFT: ${{ inputs.draft }}
