@@ -20,6 +20,11 @@ inputs:
     description: "Mark as draft release"
     required: false
     default: 'false'
+  dockerfile:
+    description: "Dockerfile to be used by docker-compose.yml"
+    required: false
+    default: 'Dockerfile.balena-jetson-agx-orin-devkit-32gb'
+
 runs:
   using: "docker"
   image: "Dockerfile"
@@ -29,3 +34,4 @@ runs:
     APPLICATION_PATH: ${{ inputs.application-path }}
     VERSION: ${{ inputs.version }}
     DRAFT: ${{ inputs.draft }}
+    BALENA_DOCKERFILE: ${{ inputs.dockerfile }}
