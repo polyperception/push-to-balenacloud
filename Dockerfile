@@ -4,8 +4,9 @@ LABEL Description="Deploy an application using the Balena CLI."
 RUN apt-get update && apt-get --yes install curl wget unzip
 
 # download the standalone balena-cli
-RUN curl -s https://api.github.com/repos/balena-io/balena-cli/releases/latest \
-	| grep "linux-x64" \
+RUN BALENA_ARCH=$(if uname -m | grep -q "x86_64"; then echo "x64"; else echo "arm64"; fi) && \
+	curl -s https://api.github.com/repos/balena-io/balena-cli/releases/latest \
+	| grep "linux-${BALENA_ARCH}" \
 	| cut -d : -f 12,3 \
 	| tr -d \" \
 	| xargs -I {} sh -c "wget -q https:{}"
