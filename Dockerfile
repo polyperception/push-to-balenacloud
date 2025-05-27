@@ -11,8 +11,7 @@ RUN BALENA_ARCH=$(if uname -m | grep -q "x86_64"; then echo "x64"; else echo "ar
 	| tr -d \" \
 	| xargs -I {} sh -c "wget -q https:{}"
 
-# unzip it
-RUN unzip -q *-standalone.zip
+RUN tar xf  *-standalone.tar.gz
 
 # Copies your code file from your action repository to the filesystem path `/` of the container
 COPY entrypoint.sh /entrypoint.sh
