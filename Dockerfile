@@ -1,4 +1,4 @@
-FROM debian:buster
+FROM debian:bookworm
 LABEL Description="Deploy an application using the Balena CLI."
 
 RUN apt-get update && apt-get --yes install curl wget unzip
