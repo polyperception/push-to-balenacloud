@@ -19,7 +19,22 @@ inputs:
   draft:
     description: "Mark as draft release"
     required: false
-    default: 'false'
+    default: "false"
+  registry-secrets-yaml:
+    description: "Optional. Registry secrets in YAML format. Takes precedence over other registry inputs."
+    required: false
+  registry-secrets-json:
+    description: "Optional. Registry secrets in JSON format. Takes precedence over YAML and other registry inputs."
+    required: false
+  registry-urls:
+    description: "Optional. Comma-separated list of registry URLs. Use empty string for Docker Hub, 'nvcr.io' for NVIDIA registry."
+    required: false
+  registry-usernames:
+    description: "Optional. Comma-separated list of usernames corresponding to registry URLs."
+    required: false
+  registry-passwords:
+    description: "Optional. Comma-separated list of passwords/tokens corresponding to registry URLs."
+    required: false
 runs:
   using: "docker"
   image: "Dockerfile"
@@ -29,3 +44,8 @@ runs:
     APPLICATION_PATH: ${{ inputs.application-path }}
     VERSION: ${{ inputs.version }}
     DRAFT: ${{ inputs.draft }}
+    REGISTRY_SECRETS_YAML: ${{ inputs.registry-secrets-yaml }}
+    REGISTRY_SECRETS_JSON: ${{ inputs.registry-secrets-json }}
+    REGISTRY_URLS: ${{ inputs.registry-urls }}
+    REGISTRY_USERNAMES: ${{ inputs.registry-usernames }}
+    REGISTRY_PASSWORDS: ${{ inputs.registry-passwords }}
