@@ -1,6 +1,6 @@
 #!/bin/bash -o pipefail
 
-EXTRA_ARGS=" --debug --tag ${VERSION}"
+EXTRA_ARGS=" --debug --release-tag ${VERSION}"
 
 if [[ "${DRAFT}" == "true" ]]; then
   EXTRA_ARGS="${EXTRA_ARGS} --draft"
