@@ -9,5 +9,5 @@ fi
 cd ${GITHUB_WORKSPACE} && cd ${APPLICATION_PATH} \
   && echo -e "name: ${FLEET_NAME}\ntype: sw.application\nversion: ${VERSION}" > balena.yml \
   && /balena/bin//balena login --token ${API_TOKEN} \
-  && /balena/bin/balena deploy ${FLEET_NAME} ${DOCKER_IMAGE_NAME} ${EXTRA_ARGS} | grep -v \\[=*\> 
+  && /balena/bin/balena deploy ${FLEET_NAME} --build --cache-from=${DOCKER_IMAGE_NAME} --tag=${VERSION} ${EXTRA_ARGS} | grep -v \\[=*\> 
 
