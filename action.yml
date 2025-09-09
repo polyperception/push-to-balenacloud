@@ -11,7 +11,7 @@ inputs:
     description: "The name of the BalenaCloud Fleet that you'll be pushing to"
     required: true
   docker-image-name:
-    description: "The name of the local Docker image that you'll be pushing to"
+    description: "The name of the local Docker image that you'll be pushing to BalenaCloud"
     required: true
   application-path:
     description: "Optional. Provide a subfolder path to your BalenaCloud application, example: ./balena-wpe"
